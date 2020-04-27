@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <form [formGroup]="formSignup" (submit)="handleSubmit()">
+        <h4 class="display-4">Đăng Ký</h4>
+        <div class="form-group">
+          <label for="">Tài Khoản</label>
+          <input formControlName="taiKhoan" type="text" class="form-control" />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="
+              formSignup.get('taiKhoan').errors?.required &&
+              formSignup.get('taiKhoan').touched
+            "
+          >
+            * Vui lòng nhập tài khoản
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Mật Khẩu</label>
+          <input formControlName="matKhau" type="password" class="form-control" />
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="
+              formSignup.get('matKhau').errors?.required &&
+              formSignup.get('matKhau').touched
+            "
+          >
+            * Vui lòng nhập mật khẩu
+          </div>
+
+          <div
+            class="alert alert-danger mt-1"
+            *ngIf="
+              (formSignup.get('matKhau').errors?.minlength ||
+                formSignup.get('matKhau').errors?.maxlength) &&
+              formSignup.get('matKhau').touched
+            "
+          >
+            * Mật khẩu có từ 8 tới 16 kí tự
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="">Họ Tên: </label>
+          <input formControlName="hoTen" type="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input formControlName="email" type="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">Số ĐT</label>
+          <input formControlName="soDt" type="text" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success" type="submit">Đăng Ký</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

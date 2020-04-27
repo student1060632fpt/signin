@@ -1,0 +1,41 @@
+<div class="m-3">
+  <h1>DEMO *NGIF ELSE</h1>
+
+  <p *ngIf="isLogin; else elseContent">Hi, Dang Trung Hieu</p>
+
+  <ng-template #elseContent>
+    <p>Login</p>
+  </ng-template>
+
+  <!-- <p *ngIf="!isLogin">Login</p> -->
+
+  <h1>DEMO *NGSWITCH *NGFOR</h1>
+
+  <select (change)="updateMonth($event)">
+    <option [value]="item.value" *ngFor="let item of monthArr">
+      {{ item.label }}
+    </option>
+  </select>
+
+  <div [ngSwitch]="month">
+    <ng-container *ngFor="let item of monthArr">
+      <p *ngSwitchCase="item.value">
+        Tháng {{ item.value }} có {{ item.dateInMonth }} ngày
+      </p>
+    </ng-container>
+
+    <p *ngSwitchDefault>Vui lòng chọn tháng</p>
+  </div>
+</div>
+
+<!-- ----------ATTRIBUTE DIRECTIVE--------- -->
+<h1>ngClass</h1>
+<!-- gắn class cho thẻ dựa theo điều kiện -->
+<div
+  [ngClass]="{ circle: shape === 'circle', square: shape === 'square' }"
+></div>
+
+<h1>ngStyle</h1>
+<div [ngStyle]="{ 'background-color': background, color: color }">
+  demo ngstyle
+</div>

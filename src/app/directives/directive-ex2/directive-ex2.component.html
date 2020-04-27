@@ -1,0 +1,36 @@
+<div class="form-inline">
+  <input #txtMa type="text" class="form-control mr-2" placeholder="MaSP" />
+  <input #txtTen type="text" class="form-control mr-2" placeholder="TenSP" />
+  <input #txtGia type="text" class="form-control mr-2" placeholder="Gia" />
+  <button
+    class="btn btn-success"
+    (click)="createProduct(txtMa.value, txtTen.value, txtGia.value)"
+  >
+    Thêm sản phẩm
+  </button>
+</div>
+<table class="table">
+  <thead>
+    <th>STT</th>
+    <th>Mã SP</th>
+    <th>Tên SP</th>
+    <th>Giá</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let item of products; let i = index"
+      [ngClass]="{ 'bg-grey': i % 2 !== 0 }"
+    >
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.MaSP }}</td>
+      <td>{{ item.TenSP }}</td>
+      <td>{{ item.Gia }}$</td>
+      <td>
+        <button class="btn btn-danger" (click)="removeProduct(item.MaSP)">
+          Xoá
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

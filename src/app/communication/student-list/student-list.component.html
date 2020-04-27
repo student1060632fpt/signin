@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="display-4">Danh sách sinh viên</h1>
+      <div class="row">
+        <div class="col-4" *ngFor="let student of studentList">
+          <app-student-item
+            (studentEmitter)="handleStudentEmitter($event)"
+            [studentItem]="student"
+          ></app-student-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <h4>Sinh Viên được chọn</h4>
+      <!-- optional chaining -->
+      <p class="lead">Tên: {{ selectedStudent?.name }}</p>
+      <p class="lead">Lớp: {{ selectedStudent?.className }}</p>
+    </div>
+  </div>
+</div>

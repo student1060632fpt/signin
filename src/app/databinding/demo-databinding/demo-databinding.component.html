@@ -1,0 +1,32 @@
+<!-- -----------------ONEWAY-------------------- -->
+<!-- <h1>ONE WAY BINDING</h1> -->
+<!-- INTERPOLATION -->
+<!-- <h5>Hello, {{ title }}</h5>
+<h5>i am, {{ "Mr " + title }}</h5> -->
+
+<!-- PROPERTY BINDING -->
+<!-- <input [value]="title" />
+<img [src]="imgUrl" /> -->
+
+<!-- EVENT BINDING -->
+<!-- <div>
+  <button (click)="showTitle('123')">Show title</button>
+  <input
+    type="text"
+    placeholder="phone number"
+    (input)="updatePhoneNumber($event)"
+  />
+  <p>Số điện thoại: {{ phoneNumber }}</p>
+</div> -->
+<!-- <input type="checkbox" (change)="showValue($event)" value="hobby" /> -->
+
+<!-- -----------------TWOWAY-------------------- -->
+<!-- <h1>TWO WAY BINDING</h1>
+<input [(ngModel)]="phoneNumber" />
+<p>Số điện thoại: {{ phoneNumber }}</p> -->
+
+<!-- ---------LOCAL REFERENCE----------- -->
+<input #txtPhoneNumber placeholder="phone number" />
+<button (click)="updatePhoneNumberWithClick( txtPhoneNumber.value )">
+    Get Phone number
+</button>
